@@ -10,11 +10,11 @@ const bodyparser = require("body-parser");
 const bcrypt = require('bcrypt');
 const flash = require("connect-flash");
 const saltRounds = 10;
-// Multer configuration
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-app.use(upload.single('eventImage'));  // Move Multer middleware here
+app.use(upload.single('eventImage'));  
 
 const passport = require('passport');
 const connectEnsureLogin = require('connect-ensure-login');
@@ -463,7 +463,7 @@ app.post("/register_:id", ensureLoggedIn, async (req, res) => {
           // Save the updated user to the database
           await user.save();
 
-          // Proceed with the rest of your registration logic
+         
           const fname = req.body.fname;
           const lname = req.body.lname;
           const email = req.body.email;
